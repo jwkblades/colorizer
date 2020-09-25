@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Colorizer Example</title>
+        <script type="module">
+            import { Colorizer } from "./src/scripts/Colorizer.js";
+            import { RGB } from "./src/scripts/colors/RGB.js";
+
+            document.addEventListener("DOMContentLoaded", function()
+            {
+                let colorize = new Colorizer([
+                    new RGB(0, 255, 0),
+                    new RGB(255, 255, 0),
+                    new RGB(255, 0, 0)
+                ]);
+
+                const maxValue = 10;
+                for (let i = 0; i <= maxValue; ++i)
+                {
+                    let obj = document.createElement("div");
+                    obj.innerText = "✔";
+                    obj.style.color = colorize.at(i / maxValue);
+                    document.body.appendChild(obj);
+                }
+            });
+        </script>
+        <style>
+            div
+            {
+                background: #333;
+                text-align: center;
+                font-size: 18pt;
+                font-weight: bold;
+                padding: 3px;
+            }
+        </style>
+    </head>
+    <body>
+    </body>
+</html>
