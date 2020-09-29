@@ -134,7 +134,7 @@ export class RGB extends Color
         const values = this._calculateH();
         return new HSL(
             values.hue,
-            values.delta / (1 - Math.abs((values.maxValue + values.minValue) - 1)),
+            values.delta / (1 - Math.abs((values.maxValue + values.minValue) - 1)) || 0,
             (values.maxValue + values.minValue) / 2
         );
     }
