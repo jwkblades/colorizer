@@ -23,7 +23,7 @@ export class Color extends Abstract
      */
     constructor()
     {
-        super(["_delta", "toString"]);
+        super(["_delta", "toString", "toRGB"]);
         if (new.target === Color)
         {
             throw new ColorizeException("Cannot instantiate an abstract class Color.");

@@ -1,5 +1,6 @@
 import { Color } from "./Color.js";
 import { ColorizeException } from "../ColorizeException.js";
+import { RGB } from "./RGB.js";
 
 /**
  * Hue, Saturation, Lightness class
@@ -39,6 +40,60 @@ export class HSL extends Color
             Math.max(0, Math.min(359, Math.floor((percent * (this.hue - other.hue)) + other.hue))),
             Math.max(0, Math.min(1, (percent * (this.saturation - other.saturation)) + other.saturation)),
             Math.max(0, Math.min(1, (percent * (this.lightness - other.lightness)) + other.lightness)),
+        );
+    }
+
+    toRGB()
+    {
+        const c = (1 - Math.abs((2 * this.lightness) - 1)) * this.saturation;
+        const x = c * (1 - Math.abs(((this.hue / 60) % 2) - 1));
+        const m = this.lightness - (c / 2);
+        
+        let rPrime = 0;
+        let gPrime = 0;
+        let bPrime = 0;
+
+        if (0 <= this.hue < 60)
+        {
+            rPrime = c;
+            gPrime = x;
+            bPrime = 0;
+        }
+        else if (60 <= this.hue < 120)
+        {
+            rPrime = x;
+            gPrime = c;
+            bPrime = 0;
+        }
+        else if (120 <= this.hue < 180)
+        {
+            rPrime = 0;
+            gPrime = c;
+            bPrime = x;
+        }
+        else if (180 <= this.hue < 240)
+        {
+            rPrime = 0;
+            gPrime = x;
+            bPrime = c;
+        }
+        else if (240 <= this.hue < 300)
+        {
+            rPrime = x;
+            gPrime = 0;
+            bPrime = c;
+        }
+        else
+        {
+            rPrime = c;
+            gPrime = 0;
+            bPrime = x;
+        }
+
+        return new RGB(
+            (rPrime + m) * 255,
+            (gPrime + m) * 255,
+            (bPrime + m) * 255
         );
     }
 

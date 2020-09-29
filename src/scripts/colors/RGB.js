@@ -89,7 +89,7 @@ export class RGB extends Color
         let hue = 0;
         if (delta != 0)
         {
-            switch (_maxValue)
+            switch (maxValue)
             {
                 case norms.r:
                     hue = 60 * (((norms.g - norms.b) / delta) % 6)
@@ -154,6 +154,14 @@ export class RGB extends Color
             (1 - norms.b - k) / (1 - k),
             k
         );
+    }
+
+    /**
+     * @return RGB this
+     */
+    toRGB()
+    {
+        return this;
     }
 };
 
