@@ -102,7 +102,9 @@ export class HSL extends Color
      */
     toString()
     {
-        return "HSL(" + this.hue + ", " + this.saturation + ", " + this.lightness + ")";
+        const sat = Math.round(this.saturation * 100);
+        const light = Math.round(this.lightness * 100);
+        return "HSL(" + this.hue + ", " + sat + "%, " + light + "%)";
     }
 };
 

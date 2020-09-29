@@ -92,13 +92,13 @@ export class RGB extends Color
             switch (maxValue)
             {
                 case norms.r:
-                    hue = 60 * (((norms.g - norms.b) / delta) % 6)
+                    hue = Math.round(60 * (((norms.g - norms.b) / delta) % 6));
                     break;
                 case norms.g:
-                    hue = 60 * (((norms.b - norms.r) / delta) + 2);
+                    hue = Math.round(60 * (((norms.b - norms.r) / delta) + 2));
                     break;
                 case norms.b:
-                    hue = 60 * (((norms.r - norms.g) / delta) + 4);
+                    hue = Math.round(60 * (((norms.r - norms.g) / delta) + 4));
                     break;
                 default:
                     throw new ColorizeException("Unable to determine hue");

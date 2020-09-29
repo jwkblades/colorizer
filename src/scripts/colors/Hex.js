@@ -1,6 +1,6 @@
 import { RGB } from "./RGB.js";
 
-class Hex extends RGB
+export class Hex extends RGB
 {
     /**
      * Hex Constructor
