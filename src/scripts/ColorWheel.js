@@ -41,14 +41,14 @@ export class ColorWheel
         let ctx = this._element.getContext("2d");
 
         const maxRadius = (300 - 2) / 2;
-        const saturationDelta = 0.01;
+        const lightnessDelta = 0.005;
         const offset = 30;
         const center = {x: 150, y: 150};
         let counter = 101;
-        for (let saturation = 1; saturation >= 0; saturation -= saturationDelta)
+        for (let lightness = .5; lightness <= 1; lightness += lightnessDelta)
         {
             const hueDelta = 360 / (2 * counter--);
-            const innerRadius = maxRadius * saturation;
+            const innerRadius = maxRadius * ((1 - lightness) / 0.5);
             for (let hue = 0; hue <= 360; hue += hueDelta)
             {
                 const angle = degs2Radians(offset + hue);
@@ -60,9 +60,8 @@ export class ColorWheel
                 ctx.moveTo(center.x, center.y);
                 ctx.lineTo(coords1.x, coords1.y);
                 ctx.lineTo(coords2.x, coords2.y);
-                //ctx.arcTo(coords1.x, coords1.y, coords2.x, coords2.y, saturation);
                 ctx.lineTo(center.x, center.y);
-                const c = new HSL(hue, saturation, .5);
+                const c = new HSL(hue, 1, lightness);
                 ctx.fillStyle = c.toRGB().toString();
                 ctx.fill();
             }
