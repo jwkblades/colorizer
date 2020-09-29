@@ -55,9 +55,9 @@ export class CMYK extends Color
     {
         const dk = 1 - this.k;
         return new RGB(
-            255 * (1 - this.c) * dk,
-            255 * (1 - this.m) * dk,
-            255 * (1 - this.y) * dk
+            Math.floor(255 * (1 - this.c) * dk),
+            Math.floor(255 * (1 - this.m) * dk),
+            Math.floor(255 * (1 - this.y) * dk)
         );
     }
 

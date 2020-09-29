@@ -94,9 +94,9 @@ export class HSV extends Color
         }
 
         return new RGB(
-            (rPrime + m) * 255,
-            (gPrime + m) * 255,
-            (bPrime + m) * 255
+            Math.floor((rPrime + m) * 255),
+            Math.floor((gPrime + m) * 255),
+            Math.floor((bPrime + m) * 255)
         );
     }
 
