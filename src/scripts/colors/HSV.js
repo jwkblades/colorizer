@@ -56,31 +56,31 @@ export class HSV extends Color
         let gPrime = 0;
         let bPrime = 0;
 
-        if (0 <= this.hue < 60)
+        if (0 <= this.hue && this.hue < 60)
         {
             rPrime = c;
             gPrime = x;
             bPrime = 0;
         }
-        else if (60 <= this.hue < 120)
+        else if (60 <= this.hue && this.hue < 120)
         {
             rPrime = x;
             gPrime = c;
             bPrime = 0;
         }
-        else if (120 <= this.hue < 180)
+        else if (120 <= this.hue && this.hue < 180)
         {
             rPrime = 0;
             gPrime = c;
             bPrime = x;
         }
-        else if (180 <= this.hue < 240)
+        else if (180 <= this.hue && this.hue < 240)
         {
             rPrime = 0;
             gPrime = x;
             bPrime = c;
         }
-        else if (240 <= this.hue < 300)
+        else if (240 <= this.hue && this.hue < 300)
         {
             rPrime = x;
             gPrime = 0;
