@@ -57,7 +57,7 @@ export class CMYK extends Color
         return new RGB(
             255 * (1 - this.c) * dk,
             255 * (1 - this.m) * dk,
-            255 * (1 - this.y) * dk;
+            255 * (1 - this.y) * dk
         );
     }
 

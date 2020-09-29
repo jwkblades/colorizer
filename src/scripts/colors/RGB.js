@@ -135,7 +135,7 @@ export class RGB extends Color
         return new HSL(
             values.hue,
             values.delta / (1 - Math.abs((values.maxValue + values.minValue) - 1)),
-            (values.maxValue + values.minValue) / 2;
+            (values.maxValue + values.minValue) / 2
         );
     }
 
