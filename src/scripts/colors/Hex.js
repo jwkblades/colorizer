@@ -17,6 +17,11 @@ export class Hex extends RGB
         );
     }
 
+    _pad(s, prefix, length)
+    {
+        return prefix.repeat(length - s.length) + s;
+    }
+
     /**
      * Convert Hex color to hexadecimal string
      *
@@ -24,9 +29,10 @@ export class Hex extends RGB
      */
     toString()
     {
-        return "#"
-            + this.color[0].toString(16)
-            + this.color[1].toString(16)
-            + this.color[2].toString(16);
+        const r = this._pad(this.color[0].toString(16), "0", 2);
+        const g = this._pad(this.color[1].toString(16), "0", 2);
+        const b = this._pad(this.color[2].toString(16), "0", 2);
+
+        return "#" + r + g + b;
     }
 };
