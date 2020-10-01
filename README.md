@@ -5,7 +5,17 @@ fly, based on a transition percentage (number between 0 and 1).
 
 ## Usage
 
-See `example.html` for a usage quick example.
+Take a look in `examples/` for example usage and some of what colorizer is
+capable of creating with relative ease.
+
+### Gradient
+
+Shows a basic implementation of a 3-stage color gradient, each item's color
+moving from green to yellow, and finally red.
+
+### Color Wheel
+
+Put together a quick color wheel, set the brightness and allow it to go forth.
 
 # License
 
